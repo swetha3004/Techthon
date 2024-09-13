@@ -1,0 +1,41 @@
+using UnityEngine;
+using TensorFlowLite;
+
+public class ObjectDetection : MonoBehaviour
+{
+    public Texture2D cameraTexture;
+    private Interpreter interpreter;
+
+    public TextAsset model; // Pre-trained TensorFlow Lite model
+    public string[] labels; // Labels for classification
+
+    void Start()
+    {
+        interpreter = new Interpreter(model.bytes);
+        interpreter.AllocateTensors();
+    }
+
+    void Update()
+    {
+        // Capture camera input as a texture
+        if (cameraTexture != null)
+        {
+            // Preprocess camera input for model
+            // Run object detection
+            // Interpret the results and label the object
+        }
+    }
+
+    private void OnDestroy()
+    {
+        interpreter.Dispose();
+    }
+
+    // Method to classify and identify waste items
+    public string ClassifyObject(Texture2D inputTexture)
+    {
+        // Run inference on the input texture
+        // Return the label of the detected object
+        return "Item detected"; // Example
+    }
+}
