@@ -1,0 +1,25 @@
+using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+
+public class ARController : MonoBehaviour
+{
+    [SerializeField]
+    private ARSessionOrigin arSessionOrigin;
+
+    [SerializeField]
+    private Camera arCamera;
+
+    void Start()
+    {
+        if (arSessionOrigin == null)
+            arSessionOrigin = GetComponent<ARSessionOrigin>();
+
+        if (arCamera == null)
+            arCamera = Camera.main;
+    }
+
+    void Update()
+    {
+        // Handle AR logic here
+    }
+}
